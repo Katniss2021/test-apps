@@ -1,0 +1,163 @@
+:root {
+  color-scheme: light;
+  --bg: #f5f2ed;
+  --panel: #ffffff;
+  --text: #1c1b1a;
+  --muted: #6e6a67;
+  --accent: #1b7f5a;
+  --accent-2: #d94f4f;
+  --grid: #efe7df;
+  --shadow: 0 12px 30px rgba(26, 24, 22, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Trebuchet MS", "Verdana", sans-serif;
+  background: radial-gradient(circle at top, #fffaf2 0%, var(--bg) 60%, #eee4d9 100%);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 16px;
+}
+
+.app {
+  width: min(720px, 100%);
+  background: var(--panel);
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+  padding: 24px;
+  display: grid;
+  gap: 24px;
+}
+
+.header {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+h1 {
+  margin: 0 0 4px;
+  font-size: 2rem;
+}
+
+.subtitle {
+  margin: 0;
+  color: var(--muted);
+}
+
+.scoreboard {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.score {
+  display: grid;
+  text-align: right;
+}
+
+.score .label {
+  color: var(--muted);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.btn {
+  border: none;
+  background: #1b1a18;
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: transform 120ms ease, box-shadow 120ms ease;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active {
+  transform: translateY(1px) scale(0.98);
+}
+
+.game {
+  display: grid;
+  gap: 12px;
+  justify-items: center;
+}
+
+.grid {
+  width: min(480px, 90vw);
+  aspect-ratio: 1 / 1;
+  display: grid;
+  grid-template-columns: repeat(16, 1fr);
+  grid-template-rows: repeat(16, 1fr);
+  gap: 2px;
+  background: var(--grid);
+  border-radius: 12px;
+  padding: 8px;
+}
+
+.cell {
+  background: #fdf9f3;
+  border-radius: 4px;
+}
+
+.cell.snake {
+  background: var(--accent);
+}
+
+.cell.head {
+  background: #115b3f;
+}
+
+.cell.food {
+  background: var(--accent-2);
+}
+
+.status {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.controls {
+  display: grid;
+  gap: 12px;
+  justify-items: center;
+}
+
+.pad {
+  display: grid;
+  gap: 8px;
+  justify-items: center;
+}
+
+.pad .row {
+  display: flex;
+  gap: 8px;
+}
+
+.hint {
+  color: var(--muted);
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+@media (max-width: 560px) {
+  .scoreboard {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .grid {
+    width: min(92vw, 420px);
+  }
+}

@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Snake</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="header">
+        <div>
+          <h1>Snake</h1>
+          <p class="subtitle">Classic grid loop.</p>
+        </div>
+        <div class="scoreboard">
+          <div class="score">
+            <span class="label">Score</span>
+            <span id="score">0</span>
+          </div>
+          <button id="restart" class="btn">Restart</button>
+        </div>
+      </header>
+
+      <section class="game">
+        <div id="grid" class="grid" role="grid" aria-label="Snake game grid"></div>
+        <div class="status" id="status" aria-live="polite">Press any arrow key to start.</div>
+      </section>
+
+      <section class="controls">
+        <div class="pad">
+          <button class="btn" data-dir="up" aria-label="Move up">▲</button>
+          <div class="row">
+            <button class="btn" data-dir="left" aria-label="Move left">◀</button>
+            <button class="btn" data-dir="down" aria-label="Move down">▼</button>
+            <button class="btn" data-dir="right" aria-label="Move right">▶</button>
+          </div>
+        </div>
+        <div class="hint">Controls: Arrow keys or WASD. Tap buttons on mobile.</div>
+      </section>
+    </main>
+
+    <script src="game.js"></script>
+  </body>
+</html>
