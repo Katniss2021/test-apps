@@ -163,6 +163,15 @@ function render(state, cells, scoreEl, statusEl) {
   }
 }
 
+function registerServiceWorker() {
+  if (!("serviceWorker" in navigator)) return;
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./sw.js").catch(() => {
+      // Non-fatal; offline support just won't be available.
+    });
+  });
+}
+
 (function init() {
   const gridEl = document.getElementById("grid");
   const scoreEl = document.getElementById("score");
@@ -224,6 +233,7 @@ function render(state, cells, scoreEl, statusEl) {
   }, TICK_MS);
 
   render(state, cells, scoreEl, statusEl);
+  registerServiceWorker();
 })();
 
 // Expose logic for potential tests.
