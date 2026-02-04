@@ -227,6 +227,29 @@ function registerServiceWorker() {
     });
   });
 
+  let touchStart = null;
+  const SWIPE_MIN = 24;
+
+  gridEl.addEventListener("touchstart", (event) => {
+    const touch = event.touches[0];
+    touchStart = { x: touch.clientX, y: touch.clientY };
+  });
+
+  gridEl.addEventListener("touchend", (event) => {
+    if (!touchStart) return;
+    const touch = event.changedTouches[0];
+    const dx = touch.clientX - touchStart.x;
+    const dy = touch.clientY - touchStart.y;
+    touchStart = null;
+
+    if (Math.abs(dx) < SWIPE_MIN && Math.abs(dy) < SWIPE_MIN) return;
+    if (Math.abs(dx) > Math.abs(dy)) {
+      handleDirection(dx > 0 ? "right" : "left");
+    } else {
+      handleDirection(dy > 0 ? "down" : "up");
+    }
+  });
+
   setInterval(() => {
     state = stepState(state);
     render(state, cells, scoreEl, statusEl);
