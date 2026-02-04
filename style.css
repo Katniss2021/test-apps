@@ -24,6 +24,8 @@ body {
   align-items: center;
   justify-content: center;
   padding: 32px 16px;
+  overscroll-behavior: none;
+  touch-action: none;
 }
 
 .app {
@@ -118,6 +120,7 @@ h1 {
   background: var(--grid);
   border-radius: 12px;
   padding: 8px;
+  touch-action: none;
 }
 
 .cell {

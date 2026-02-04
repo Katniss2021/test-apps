@@ -1,10 +1,11 @@
-const CACHE_NAME = "snake-pwa-v1";
+const CACHE_NAME = "snake-pwa-v2";
 const CORE_ASSETS = [
   "./",
   "./index.html",
   "./style.css",
   "./game.js",
   "./manifest.json",
+  "./logo.png",
   "./icon-192.png",
   "./icon-512.png",
   "./apple-touch-icon.png",
